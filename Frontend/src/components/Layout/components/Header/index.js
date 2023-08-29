@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
+import logo from '../../../../img/logo5-removebg-preview.png';
 // Fontawesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -20,6 +21,7 @@ import Menu from '../../../Poppers/Menu';
 import DarkMode from '../../../DarkMode';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Cart from '../../../../pages/Cart';
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
@@ -59,6 +61,8 @@ function Header() {
     const [name, setName] = useState('');
     console.log(name);
     const [message, setMessage] = useState('');
+    // usestate cart
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
         axios.get('http://localhost:8000').then((res) => {
@@ -79,8 +83,9 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 {/* Logo */}
-                <Link to="/">
-                    <img src="https://www.coolmate.me/images/logo-coolmate.svg"></img>
+                <Link to="/" style={{ borderRadius: '50%' }}>
+                    {/* <img className={cx('logo')} src={logo} />  */}
+                    <h2 className={cx('brand')}>gabistore</h2>
                 </Link>
                 {/* HeaderMenu */}
                 <div className={cx('headerMenu')}>
@@ -103,25 +108,6 @@ function Header() {
                     </ul>
                 </div>
 
-                {/* <Button primary leftIcon={<FontAwesomeIcon className={cx('cart')} icon={faCartShopping} />}>
-                    Login
-                </Button> */}
-
-                {/* {auth ? (
-                    <div>
-                        <h3>You are authen {name}</h3>
-                        <button>Logout</button>
-                    </div>
-                ) : (
-                    <div>
-                        <h3>{message}</h3>
-                        <h3>Login now</h3>
-                        <button>Login</button>
-                    </div>
-                )} */}
-
-                {/* user */}
-
                 <div className={cx('icon')}>
                     {auth ? (
                         <div className={cx('icon__main')}>
@@ -138,9 +124,15 @@ function Header() {
                             <FontAwesomeIcon className={cx('search')} icon={faMagnifyingGlass} />
 
                             {/* cart */}
-                            <Link to="/cart">
-                                {' '}
-                                <FontAwesomeIcon className={cx('cart')} icon={faCartShopping} />
+                            <Link >
+                                <div className={cx('cartIcon')}>
+                                    <FontAwesomeIcon
+                                        className={cx('cart')}
+                                        icon={faCartShopping}
+                                        onClick={() => setOpen(!open)} 
+                                    />
+                                    <span>0</span>
+                                </div>
                             </Link>
                         </div>
                     ) : (
@@ -191,6 +183,7 @@ function Header() {
                     {/* <DarkMode/> */}
                 </div>
             </div>
+            {open && <Cart/>}
         </header>
     );
 }

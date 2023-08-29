@@ -3,6 +3,9 @@ import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { faEnvelope, faInfo, faLock, faPhone, faUser, faVoicemail } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../../components/Button';
@@ -93,7 +96,9 @@ function Register() {
     });
     // console.log(values);
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+   
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -102,12 +107,12 @@ function Register() {
             // .then((res) => console.log(res))
             // .then((err) => console.log(err));
 
-            .then (res => {
-                if(res.data.Status == 'SUCCESS') {
-                    alert('Thành công')
-                    navigate('/login')
-                 }
-            })
+            .then((res) => {
+                if (res.data.Status == 'SUCCESS') {
+                    alert('Tạo tài khoản thành công');
+                    navigate('/login');
+                }
+            });
     };
 
     return (
@@ -180,7 +185,7 @@ function Register() {
                             </Link>
                         </div>
 
-                        <Button primary type="submit" className={cx('btn')}>
+                        <Button primary type="submit" className={cx('btn')} >
                             Đăng kí
                         </Button>
                     </form>

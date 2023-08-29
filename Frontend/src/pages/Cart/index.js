@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 const cx = classNames.bind(styles);
 
 function Cart({data}) {
-    console.log(data); 
-    
+    console.log(data);
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -106,3 +106,68 @@ function Cart({data}) {
 }
 
 export default Cart;
+
+// import React from 'react';
+// import styles from './Cart.module.scss';
+// import classNames from 'classnames/bind';
+// import { useState } from 'react';
+// import { Link } from 'react-router-dom';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faTimes, faTrash } from '@fortawesome/free-solid-svg-icons';
+
+// const cx = classNames.bind(styles);
+
+// function Cart() {
+//     const data = [
+//         {
+//             id: 1,
+//             img: 'https://i.pinimg.com/564x/bc/aa/87/bcaa87cb5615b3b38c9402b71e71b1e9.jpg',
+//             img2: 'https://i.pinimg.com/736x/10/49/16/1049160ac4ac4276c34bfa9d8b28c293.jpg',
+//             title: 'Long Sleeve Graphic',
+//             description: 'Nice cloth',
+//             isNew: true,
+//             oldPrice: 19,
+//             price: 12,
+//         },
+
+//         {
+//             id: 2,
+//             img: 'https://i.pinimg.com/736x/10/49/16/1049160ac4ac4276c34bfa9d8b28c293.jpg',
+//             img2: 'https://i.pinimg.com/564x/bc/aa/87/bcaa87cb5615b3b38c9402b71e71b1e9.jpg',
+//             title: 'Long Sleeve Graphic 2',
+//             description: 'Gooddddd',
+//             isNew: true,
+//             oldPrice: 1921,
+//             price: 1212,
+//         },
+//     ];
+//     return (
+//         <div className={cx('cart')}>
+//             <h3>Giỏ hàng bạn hiện có:</h3>
+//             {data?.map((item) => (
+//                 <div className={cx('item')} key={item.id}>
+//                     <img src={item.img} />
+//                     <div className={cx('details')}>
+//                         <h3>{item.title}</h3>
+//                         <p>{item.description.substring(0, 100)}</p>
+//                         <div className={cx('price')}>1 x {item.price}.000</div>
+//                     </div>
+//                     <span className={cx('delete')}>
+//                         <FontAwesomeIcon icon={faTrash} />
+//                     </span>
+//                 </div>
+//             ))}
+//             <div className={cx('total')}>
+//                 <span>TẠM TÍNH </span>
+//                 <span>123.000</span>
+//             </div>
+
+//             <div className={cx('checkout')}>
+//                 <button className={cx('checkout-btn')}>Thanh toán ngay</button>
+//             </div>
+//             <span className={cx('reset')}>Reset giỏ hàng</span>
+//         </div>
+//     );
+// }
+
+// export default Cart;

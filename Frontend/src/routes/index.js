@@ -27,18 +27,21 @@ import ShirtDetail from '../pages/Product/Shirt/ShirtDetail';
 import PantsDetail from '../pages/Product/Pants/PantsDetail';
 import PantsAdmin from '../pages/Admin/Products/Pants';
 import PantsEdit from '../pages/Admin/Products/Pants/Edit';
+import Blog from '../pages/Blog';
+
 
 // Routes ko đăng nhập vẫn vào dc
 const publicRoutes = [
     { path: '/', component: Home },
     { path: '/following', component: Following },
+    { path: '/blog', component: Blog },
     { path: '/product', component: Product },
     { path: '/product/polo', component: Polo, type: Polo },
-    { path: '/product/polo/detail/:empid', component: PoloDetail },
+    { path: '/product/polo/:id', component: PoloDetail },
     { path: '/product/shirt', component: Shirt, type: Shirt },
-    { path: '/product/shirt/shirt_detail/:empid', component: ShirtDetail },
+    { path: '/product/shirt/:id', component: ShirtDetail},
     { path: '/product/pants', component: Pants, type: Pants },
-    { path: '/product/pants/detail/:empid', component: PantsDetail },
+    { path: '/product/pants/:id', component: PantsDetail },
     // {path: '/product_detail', component: ProductDetail},
     { path: '/login', component: Login, layout: NoHeader },
     { path: '/register', component: Register, layout: NoHeader },

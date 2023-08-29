@@ -1,6 +1,8 @@
 import styles from './BestSeller.module.scss';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 import { useEffect, useState } from 'react';
 
@@ -15,8 +17,17 @@ function BestSeller() {
             .then((res) => res.json())
             .then((bests) => setBestSeller(bests));
     }, []);
+
+    useEffect(() => {
+        Aos.init({
+            duration:400,
+            delay: 200,
+            easing: 'ease-in-sine',
+
+        });
+    }, []);
     return (
-        <div className={cx('wrapper__total')}>
+        <div className={cx('wrapper__total')} data-aos="fade-right">
             <h1>Bán chạy nhất</h1>
             <div className={cx('wrapper')}>
                 {/* <h1 className='title'>BestSeller</h1> */}
@@ -31,14 +42,11 @@ function BestSeller() {
                                 </p>
                                 <div className={cx('inner__item-content-inner')}>
                                     <p className={cx('inner__item-content-price')}>{best.price}.000</p>
-                                    <span className={cx('inner__item-content-buy')}>
-                                        Lượt mua: {best.buy} cái</span>
+                                    <span className={cx('inner__item-content-buy')}>Lượt mua: {best.buy} cái</span>
                                 </div>
                             </div>
                         </div>
                     ))}
-
-                    
                 </div>
             </div>
         </div>

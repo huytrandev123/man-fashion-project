@@ -117,6 +117,14 @@ app.get("/users", (req, res) => {
   });
 });
 
+app.get("/blog", (req, res) => {
+  const sql = `SELECT * FROM blog `;
+  db.query(sql, (err, data) => {
+    if (err) throw err;
+    return res.json(data);
+  });
+});
+
 app.get("/shirts", (req, res) => {
   const sql = `SELECT * FROM products WHERE id_danhmuc = 1 `;
   db.query(sql, (err, data) => {
@@ -143,6 +151,14 @@ app.get("/pants", (req, res) => {
 
 app.get("/best_seller", (req, res) => {
   const sql = `SELECT * FROM products WHERE buy >= 500  order by id desc `;
+  db.query(sql, (err, data) => {
+    if (err) throw err;
+    return res.json(data);
+  });
+});
+
+app.get("/new", (req, res) => {
+  const sql = `SELECT * FROM products WHERE new = 1  order by id desc `;
   db.query(sql, (err, data) => {
     if (err) throw err;
     return res.json(data);

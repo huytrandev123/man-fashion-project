@@ -14,13 +14,13 @@ function ConfirmInfo() {
                     <h1 className={cx('inner-title')}>Đặt hàng thành công</h1>
                     <p>
                         Trên thị trường có rất nhiều sự lựa chọn cho bạn, nhưng bạn vẫn lựa chọn mua sắm tại
-                        <b>COOLMATE</b>
+                        <b> GABI</b>
                     </p>
                     <p>
-                        Đơn hàng của bạn CHẮC CHẮN đã được chuyển tới hệ thống xử lí đơn hàng của <b>COOLMATE</b>
+                        Đơn hàng của bạn CHẮC CHẮN đã được chuyển tới hệ thống xử lí đơn hàng của <b>GABI</b>
                     </p>
-                    <p>Trong quá trình xử lí Coolmate sẽ liên hệ bạn nếu như cần thêm thông tin</p>
-                    <p>Ngoài ra Coolmate sẽ có gửi xác nhận đơn hàng bằng email hoặc tin nhắn</p>
+                    <p>Trong quá trình xử lí GABI sẽ liên hệ bạn nếu như cần thêm thông tin</p>
+                    <p>Ngoài ra GABI sẽ có gửi xác nhận đơn hàng bằng email hoặc tin nhắn</p>
 
                     <Link to="/product">
                         <Button primary className={cx('btn-inner')}>
@@ -68,7 +68,7 @@ function ConfirmInfo() {
                                 <td>19000</td>
                             </tr>
                         </table>
-                        <div className={cx('more-options')}>
+                        {/* <div className={cx('more-options')}>
                             <p>Mã giảm giá</p>
                             <hr/>
                             <p>Mã giảm giá</p>
@@ -76,7 +76,7 @@ function ConfirmInfo() {
                             <p>Mã giảm giá</p>
                             <hr/>
                             <p>Mã giảm giá</p>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

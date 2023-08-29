@@ -7,6 +7,7 @@ import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-s
 import HeadlessTippy from '@tippyjs/react/headless';
 // import 'tippy.js/dist/tippy.css';
 
+
 import * as request from '../../../utils/request';
 // import request from '../../../utils/request';
 import { Wrapper as PopperWrapper } from '../../../components/Poppers';
@@ -94,6 +95,8 @@ function Question() {
     const handleHideResult = () => {
         setShowResult(false);
     };
+
+    
 
     return (
         <div className={cx('question')}>
